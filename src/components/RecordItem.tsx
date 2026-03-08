@@ -28,14 +28,14 @@ const RecordItem: React.FC<RecordItemProps> = ({ record, activityType, onClick }
   };
 
   return (
-    <div 
+    <div
       onClick={onClick}
       className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100 cursor-pointer active:scale-[0.98]"
     >
       <div className="size-10 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 shrink-0">
         <span className="material-symbols-outlined text-xl">{getIcon(activityType)}</span>
       </div>
-      
+
       <div className="flex-1 min-w-0">
         <h3 className="text-sm font-bold text-slate-900 truncate">
           {record.giverName}
@@ -44,7 +44,7 @@ const RecordItem: React.FC<RecordItemProps> = ({ record, activityType, onClick }
           {record.activityTitle} <span className="mx-1">·</span> {formatDate(record.timestamp)}
         </p>
       </div>
-      
+
       <div className="text-right shrink-0">
         <p className="text-sm font-bold text-primary">¥{record.amount.toLocaleString()}</p>
       </div>
