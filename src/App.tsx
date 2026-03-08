@@ -9,6 +9,21 @@ import { motion, AnimatePresence } from 'motion/react';
 type View = 'home' | 'search' | 'add' | 'stats' | 'profile' | 'activity_records';
 
 export default function App() {
+  React.useEffect(() => {
+    // 只有在安卓手机下触发
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    if (isAndroid) {
+      const timer = setTimeout(() => {
+        const link = document.createElement('a');
+        link.href = '/suili.apk'; // 对应你 public 文件夹里的文件
+        link.download = '随礼账本.apk';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
   const [activeTab, setActiveTab] = useState<string>('home');
   const [view, setView] = useState<View>('home');
   const [activities, setActivities] = useState<Activity[]>([]);
