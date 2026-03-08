@@ -1,4 +1,5 @@
 {
+    "id": "/gift-giving-system",
     "name": "随礼账本",
     "short_name": "随礼",
     "start_url": "/",
@@ -7,9 +8,10 @@
     "theme_color": "#0052cc",
     "icons": [
         {
-            "src": "favicon.ico",
-            "sizes": "64x64 32x32 24x24 16x16",
-            "type": "image/x-icon"
+            "src": "logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
         }
     ]
 }
