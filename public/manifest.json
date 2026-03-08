@@ -1,14 +1,14 @@
 {
     "id": "/gift-giving-system",
-    "name": "随礼账本",
-    "short_name": "随礼",
+    "name": "礼部",
+    "short_name": "礼部",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#0052cc",
     "icons": [
         {
-            "src": "logo.png",
+            "src": "/logo.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any"
