@@ -5,7 +5,7 @@
     ],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.example.signer",
+      "package_name": "com.david.suili",
       "sha256_cert_fingerprints": [
         "C3:55:A3:E9:41:5B:87:69:A5:9B:C8:1B:E2:6D:F9:0B:2E:68:0C:FC:23:52:6B:F5:37:91:03:C5:FA:3C:88:C7"
       ]
