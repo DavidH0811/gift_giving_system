@@ -9,21 +9,15 @@ import { motion, AnimatePresence } from 'motion/react';
 type View = 'home' | 'search' | 'add' | 'stats' | 'profile' | 'activity_records';
 
 export default function App() {
-  React.useEffect(() => {
-    // 只有在安卓手机下触发
-    const isAndroid = /Android/i.test(navigator.userAgent);
-    if (isAndroid) {
-      const timer = setTimeout(() => {
-        const link = document.createElement('a');
-        link.href = '/suili.apk'; // 对应你 public 文件夹里的文件
-        link.download = '随礼账本.apk';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
+  // 移除 useEffect 中的自动下载
+  const handleDownloadApk = () => {
+    const link = document.createElement('a');
+    link.href = '/suili.apk';
+    link.download = '随礼账本.apk';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   const [activeTab, setActiveTab] = useState<string>('home');
   const [view, setView] = useState<View>('home');
   const [activities, setActivities] = useState<Activity[]>([]);
@@ -204,6 +198,21 @@ export default function App() {
             <span className="material-symbols-outlined text-xs">trending_up</span>
             <span>+12.5% 同比去年</span>
           </div>
+        </div>
+
+        {/* 新增：下载安卓版引导入口 */}
+        <div 
+          onClick={handleDownloadApk}
+          className="mt-6 bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-center gap-4 cursor-pointer hover:bg-slate-100 active:scale-[0.98] transition-all group"
+        >
+          <div className="size-12 rounded-lg bg-green-500/10 flex items-center justify-center text-green-600 group-hover:scale-110 transition-transform">
+            <span className="material-symbols-outlined text-2xl">android</span>
+          </div>
+          <div className="flex-1">
+            <h3 className="text-sm font-bold text-slate-900">下载安卓原生 APP</h3>
+            <p className="text-xs text-slate-500 mt-0.5">安装后体验更流畅，支持桌面图标</p>
+          </div>
+          <span className="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">download</span>
         </div>
       </div>
 
